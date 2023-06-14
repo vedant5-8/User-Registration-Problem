@@ -28,6 +28,7 @@ namespace Regex_Practice
                 Console.WriteLine("Select your option: ");
                 Console.WriteLine("1. Check First name starts with Cap and has minimum 3 characters");
                 Console.WriteLine("2. Check Last name starts with Cap and has minimum 3 characters");
+                Console.WriteLine("3. Check Email address is valid or not");
                 Console.WriteLine("0. Exit");
 
                 Console.Write("=> ");
@@ -60,6 +61,25 @@ namespace Regex_Practice
                         Console.WriteLine(LastName);
 
                         if (ValidLastName.LastName(LastName))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Valid");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invalid");
+                            Console.ResetColor();
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Enter your email: ");
+                        string Email = Console.ReadLine();
+                        Console.WriteLine(Email);
+
+                        if (ValidEmail.Email(Email))
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Valid");
