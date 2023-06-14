@@ -5,7 +5,7 @@ namespace User_Registration_Problem
 {
     public class ValidLastName
     {
-        // UC1 - As a user need to enter a valid Last Name
+        // UC2 - As a user need to enter a valid Last Name
         public static bool LastName(string lastName)
         {
             string namePattern = "[A-Z]{1}[a-z]{2,}";
