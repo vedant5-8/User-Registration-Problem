@@ -9,7 +9,7 @@ namespace User_Registration_Problem
 {
     public class ValidFirstName
     {
-        // UC1 - As a User need to enter a valid First Name
+        // UC1 - As a user need to enter a valid First Name
         public static bool FirstName(string firstName)
         {
             string namePattern = "[A-Z]{1}[a-z]{2,}";

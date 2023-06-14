@@ -51,7 +51,6 @@ namespace Regex_Practice
                             Console.WriteLine("Invalid");
                             Console.ResetColor();
                         }
-
                         break;
 
                     case 0:
