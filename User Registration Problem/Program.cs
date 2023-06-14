@@ -30,6 +30,7 @@ namespace Regex_Practice
                 Console.WriteLine("2. Check Last name starts with Cap and has minimum 3 characters");
                 Console.WriteLine("3. Check Email address is valid or not");
                 Console.WriteLine("4. Check Mobile Number is valid or not");
+                Console.WriteLine("5. Check Password is valid or not.");
                 Console.WriteLine("0. Exit");
 
                 Console.Write("=> ");
@@ -100,6 +101,25 @@ namespace Regex_Practice
                         Console.WriteLine(PhoneNumber);
 
                         if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Valid");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invalid");
+                            Console.ResetColor();
+                        }
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Enter your Password: ");
+                        string Password = Console.ReadLine();
+                        Console.WriteLine(Password);
+
+                        if (ValidPassword.Password(Password))
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Valid");
