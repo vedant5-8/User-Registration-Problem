@@ -17,7 +17,7 @@ namespace User_Registration_Test_Cases
             string LastName = "Patil";
             string actual;
 
-            if (ValidFirstName.FirstName(LastName))
+            if (ValidLastName.LastName(LastName))
             {
                 actual = "Valid";
             }
@@ -37,7 +37,7 @@ namespace User_Registration_Test_Cases
             string LastName = "Mhatre";
             string actual;
 
-            if (ValidFirstName.FirstName(LastName))
+            if (ValidLastName.LastName(LastName))
             {
                 actual = "Valid";
             }
@@ -59,7 +59,7 @@ namespace User_Registration_Test_Cases
             string LastName = "rathod";
             string actual;
 
-            if (ValidFirstName.FirstName(LastName))
+            if (ValidLastName.LastName(LastName))
             {
                 actual = "Valid";
             }
@@ -79,7 +79,7 @@ namespace User_Registration_Test_Cases
             string LastName = "kulkarni";
             string actual;
 
-            if (ValidFirstName.FirstName(LastName))
+            if (ValidLastName.LastName(LastName))
             {
                 actual = "Valid";
             }

@@ -59,7 +59,7 @@ namespace Regex_Practice
                         string LastName = Console.ReadLine();
                         Console.WriteLine(LastName);
 
-                        if (ValidFirstName.FirstName(LastName))
+                        if (ValidLastName.LastName(LastName))
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Valid");
