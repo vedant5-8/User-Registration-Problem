@@ -6,30 +6,12 @@ namespace User_Registration_Test_Cases
     public class FirstNameTestCase
     {
         // Valid first name test cases
-        [TestMethod]
-        public void TestCase1()
-        {
-            string FirstName = "Sahil";
-            string actual;
-
-            if (ValidFirstName.FirstName(FirstName))
-            {
-                actual = "Valid";
-            }
-            else
-            {
-                actual = "Invalid";
-            }
-
-            string expected = "Valid";
-
-            Assert.AreEqual(actual, expected);
-        }
 
         [TestMethod]
-        public void TestCase2()
+        [DataRow("Sahil")]
+        [DataRow("Manish")]
+        public void MultipleValidFirstName(string FirstName)
         {
-            string FirstName = "Manish";
             string actual;
 
             if (ValidFirstName.FirstName(FirstName))
@@ -49,29 +31,10 @@ namespace User_Registration_Test_Cases
         // Invalid first name test cases
 
         [TestMethod]
-        public void TestCase3()
+        [DataRow("sumit")]
+        [DataRow("shubham")]
+        public void MultipleInvalidFirstName(string FirstName)
         {
-            string FirstName = "shubham";
-            string actual;
-
-            if (ValidFirstName.FirstName(FirstName))
-            {
-                actual = "Valid";
-            }
-            else
-            {
-                actual = "Invalid";
-            }
-
-            string expected = "Invalid";
-
-            Assert.AreEqual(actual, expected);
-        }
-
-        [TestMethod]
-        public void TestCase4()
-        {
-            string FirstName = "kunal";
             string actual;
 
             if (ValidFirstName.FirstName(FirstName))

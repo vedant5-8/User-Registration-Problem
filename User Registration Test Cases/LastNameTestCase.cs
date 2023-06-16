@@ -11,30 +11,12 @@ namespace User_Registration_Test_Cases
     public class LastNameTestCase
     {
         // Valid last name test cases
-        [TestMethod]
-        public void TestCase1()
-        {
-            string LastName = "Patil";
-            string actual;
-
-            if (ValidLastName.LastName(LastName))
-            {
-                actual = "Valid";
-            }
-            else
-            {
-                actual = "Invalid";
-            }
-
-            string expected = "Valid";
-
-            Assert.AreEqual(actual, expected);
-        }
 
         [TestMethod]
-        public void TestCase2()
+        [DataRow("Patil")]
+        [DataRow("Mhatre")]
+        public void MultipleValidLastName(string LastName)
         {
-            string LastName = "Mhatre";
             string actual;
 
             if (ValidLastName.LastName(LastName))
@@ -54,9 +36,10 @@ namespace User_Registration_Test_Cases
         // Invalid last name test cases
 
         [TestMethod]
-        public void TestCase3()
+        [DataRow("rathod")]
+        [DataRow("kulkarni")]
+        public void TestCase1(string LastName)
         {
-            string LastName = "rathod";
             string actual;
 
             if (ValidLastName.LastName(LastName))
@@ -72,26 +55,5 @@ namespace User_Registration_Test_Cases
 
             Assert.AreEqual(actual, expected);
         }
-
-        [TestMethod]
-        public void TestCase4()
-        {
-            string LastName = "kulkarni";
-            string actual;
-
-            if (ValidLastName.LastName(LastName))
-            {
-                actual = "Valid";
-            }
-            else
-            {
-                actual = "Invalid";
-            }
-
-            string expected = "Invalid";
-
-            Assert.AreEqual(actual, expected);
-        }
-
     }
 }
