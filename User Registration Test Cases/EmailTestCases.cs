@@ -6,7 +6,7 @@ namespace User_Registration_Test_Cases
     [TestClass]
     public class EmailTestCases
     {
-        // Valid Email address test cases
+        // UC9 - Valid Email address test cases
         [TestMethod]
         public void TestCase1()
         {
