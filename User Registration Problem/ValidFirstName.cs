@@ -16,7 +16,9 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(namePattern);
 
-            if(!regex.IsMatch(firstName))
+            Func<string, bool> match = (FName) => regex.IsMatch(FName);
+
+            if (!match(firstName))
             {
                 throw new InvalidUserDetails("The Firstname is not valid. \nFirst Name: " + firstName);
             }

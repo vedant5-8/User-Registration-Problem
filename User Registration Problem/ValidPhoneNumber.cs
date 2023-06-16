@@ -16,7 +16,9 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(mobilePattern);
 
-            if (!regex.IsMatch(number))
+            Func<string, bool> match = (Phone) => regex.IsMatch(Phone);
+
+            if (!match(number))
             {
                 throw new InvalidUserDetails("The phone number is not valid. \nPhone Number: " + number);
             }

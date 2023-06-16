@@ -13,7 +13,9 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(emailPattern);
 
-            if (!regex.IsMatch(email))
+            Func<string, bool> match = (EmailAddr) => regex.IsMatch(EmailAddr);
+
+            if (!match(email))
             {
                 throw new InvalidUserDetails("The email is not valid. \nEmail: " + email);
             }

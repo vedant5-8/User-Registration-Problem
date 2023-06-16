@@ -12,7 +12,9 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(namePattern);
 
-            if (!regex.IsMatch(lastName))
+            Func<string, bool> match = (LName) => regex.IsMatch(LName);
+
+            if (!match(lastName))
             {
                 throw new InvalidUserDetails("The Lastname is not valid. \nLast Name: " + lastName);
             }

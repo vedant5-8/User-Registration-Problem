@@ -21,7 +21,9 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(PasswordPattern);
 
-            if (!regex.IsMatch(Password))
+            Func<string, bool> match = (Password) => regex.IsMatch(Password);
+
+            if (!match(Password))
             {
                 throw new InvalidUserDetails("The password is not valid. \nPassword: " + Password);
             }
