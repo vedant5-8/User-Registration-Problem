@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using User_Registration_Problem;
 
 namespace User_Registration_Test_Cases
@@ -445,6 +446,29 @@ namespace User_Registration_Test_Cases
             }
 
             string expected = "Invalid";
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        // UC11 - Parameterised Test to validate multiple entry for the Email Address.
+
+        [TestMethod]
+        [DataRow("vedantnp200@gmail.com")]
+        [DataRow("abc.sdf123@gmail.com")]
+        public void MultipleEmails(string Email)
+        {
+            string actual;
+
+            if (ValidEmail.Email(Email))
+            {
+                actual = "Valid";
+            }
+            else
+            {
+                actual = "Invalid";
+            }
+
+            string expected = "Valid";
 
             Assert.AreEqual(actual, expected);
         }
