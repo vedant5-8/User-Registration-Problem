@@ -21,7 +21,14 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(PasswordPattern);
 
-            return regex.IsMatch(Password);
+            if (!regex.IsMatch(Password))
+            {
+                throw new InvalidUserDetails("The password is not valid. \nPassword: " + Password);
+            }
+            else
+            {
+                return regex.IsMatch(Password);
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Regex_Practice
 
             while (true)
             {
-                Console.WriteLine("Select your option: ");
+                Console.WriteLine("\nSelect your option: ");
                 Console.WriteLine("1. Check First name starts with Cap and has minimum 3 characters");
                 Console.WriteLine("2. Check Last name starts with Cap and has minimum 3 characters");
                 Console.WriteLine("3. Check Email address is valid or not");
@@ -41,96 +41,111 @@ namespace Regex_Practice
                     case 1:
                         Console.WriteLine("Enter your first name: ");
                         string FirstName = Console.ReadLine();
-                        Console.WriteLine(FirstName);
 
-                        if (ValidFirstName.FirstName(FirstName))
+                        try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Valid");
+                            if (ValidFirstName.FirstName(FirstName))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Valid");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (InvalidUserDetails ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("An exception occurred: " + ex.Message);
                             Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Invalid");
-                            Console.ResetColor();
-                        }
+
                         break;
 
                     case 2:
                         Console.WriteLine("Enter your last name: ");
                         string LastName = Console.ReadLine();
-                        Console.WriteLine(LastName);
 
-                        if (ValidLastName.LastName(LastName))
+                        try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Valid");
+                            if (ValidLastName.LastName(LastName))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Valid");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (InvalidUserDetails ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("An exception occurred: " + ex.Message);
                             Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Invalid");
-                            Console.ResetColor();
-                        }
+                        
                         break;
 
                     case 3:
                         Console.WriteLine("Enter your email: ");
                         string Email = Console.ReadLine();
-                        Console.WriteLine(Email);
 
-                        if (ValidEmail.Email(Email))
+                        try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Valid");
+                            if (ValidEmail.Email(Email))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Valid");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (InvalidUserDetails ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("An exception occurred: " + ex.Message);
                             Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Invalid");
-                            Console.ResetColor();
-                        }
+
                         break;
 
                     case 4:
                         Console.WriteLine("Enter your Phone Number: ");
                         string PhoneNumber = Console.ReadLine();
-                        Console.WriteLine(PhoneNumber);
 
-                        if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+                        try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Valid");
+                            if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Valid");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (InvalidUserDetails ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("An exception occurred: " + ex.Message);
                             Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Invalid");
-                            Console.ResetColor();
-                        }
+
                         break;
 
                     case 5:
                         Console.WriteLine("Enter your Password: ");
                         string Password = Console.ReadLine();
-                        Console.WriteLine(Password);
 
-                        if (ValidPassword.Password(Password))
+                        try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Valid");
+                            if (ValidPassword.Password(Password))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Valid");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (InvalidUserDetails ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("An exception occurred: " + ex.Message);
                             Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Invalid");
-                            Console.ResetColor();
-                        }
+
                         break;
 
                     case 0:

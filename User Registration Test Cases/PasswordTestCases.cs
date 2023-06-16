@@ -13,15 +13,18 @@ namespace User_Registration_Test_Cases
         [DataRow("4%\"Hf^C:U7+X")]
         public void MultipleValidPasswordTestCase(string Password)
         {
-            string actual;
+            string actual = string.Empty;
 
-            if (ValidPassword.Password(Password))
+            try
             {
-                actual = "Valid";
+                if (ValidPassword.Password(Password))
+                {
+                    actual = "Valid";
+                }
             }
-            else
+            catch (InvalidUserDetails ex)
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
             string expected = "Valid";
@@ -38,18 +41,24 @@ namespace User_Registration_Test_Cases
         [DataRow("al#gnlj6rn4gl7jn_")]
         public void MultipleInvalidPasswordTestCase(string Password)
         {
-            string actual;
+            InvalidUserDetails ex = new InvalidUserDetails();
+            string actual = string.Empty;
+            string expected;
 
-            if (ValidPassword.Password(Password))
+            try
             {
-                actual = "Valid";
+                if (ValidPassword.Password(Password))
+                {
+                    actual = "Valid";
+                }
+
             }
-            else
+            catch
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
-            string expected = "Invalid";
+            expected = "An exception occurred: " + ex.Message;
 
             Assert.AreEqual(actual, expected);
         }

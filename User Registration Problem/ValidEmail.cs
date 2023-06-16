@@ -13,7 +13,14 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(emailPattern);
 
-            return regex.IsMatch(email);
+            if (!regex.IsMatch(email))
+            {
+                throw new InvalidUserDetails("The email is not valid. \nEmail: " + email);
+            }
+            else
+            {
+                return regex.IsMatch(email);
+            }
 
         }
     }

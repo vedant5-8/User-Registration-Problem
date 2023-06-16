@@ -16,7 +16,14 @@ namespace User_Registration_Problem
 
             Regex regex = new Regex(mobilePattern);
 
-            return regex.IsMatch(number);
+            if (!regex.IsMatch(number))
+            {
+                throw new InvalidUserDetails("The phone number is not valid. \nPhone Number: " + number);
+            }
+            else
+            {
+                return regex.IsMatch(number);
+            }
         }
     }
 }

@@ -14,15 +14,18 @@ namespace User_Registration_Test_Cases
         [DataRow("8655588591")]
         public void MultipleValidPhoneNumber(string PhoneNumber)
         {
-            string actual;
+            string actual = string.Empty;
 
-            if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+            try
             {
-                actual = "Valid";
+                if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+                {
+                    actual = "Valid";
+                }
             }
-            else
+            catch (InvalidUserDetails ex)
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
             string expected = "Valid";
@@ -38,18 +41,24 @@ namespace User_Registration_Test_Cases
         [DataRow("+118695845848")]
         public void MultipleInvalidPhoneNumber(string PhoneNumber)
         {
-            string actual;
+            InvalidUserDetails ex = new InvalidUserDetails();
+            string actual = string.Empty;
+            string expected;
 
-            if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+            try
             {
-                actual = "Valid";
+                if (ValidPhoneNumber.IndianPhoneNumber(PhoneNumber))
+                {
+                    actual = "Valid";
+                }
+
             }
-            else
+            catch
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
-            string expected = "Invalid";
+            expected = "An exception occurred: " + ex.Message;
 
             Assert.AreEqual(actual, expected);
         }

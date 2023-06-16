@@ -12,20 +12,24 @@ namespace User_Registration_Test_Cases
         [DataRow("Manish")]
         public void MultipleValidFirstName(string FirstName)
         {
-            string actual;
+            string actual = string.Empty;
 
-            if (ValidFirstName.FirstName(FirstName))
+            try
             {
-                actual = "Valid";
+                if (ValidFirstName.FirstName(FirstName))
+                {
+                    actual = "Valid";
+                }
             }
-            else
+            catch (InvalidUserDetails ex)
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
             string expected = "Valid";
 
             Assert.AreEqual(actual, expected);
+
         }
 
         // Invalid first name test cases
@@ -35,18 +39,24 @@ namespace User_Registration_Test_Cases
         [DataRow("shubham")]
         public void MultipleInvalidFirstName(string FirstName)
         {
-            string actual;
+            InvalidUserDetails ex = new InvalidUserDetails();
+            string actual = string.Empty;
+            string expected;
 
-            if (ValidFirstName.FirstName(FirstName))
+            try
             {
-                actual = "Valid";
+                if (ValidFirstName.FirstName(FirstName))
+                {
+                    actual = "Valid";
+                }
+
             }
-            else
+            catch
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
-            string expected = "Invalid";
+            expected = "An exception occurred: " + ex.Message;
 
             Assert.AreEqual(actual, expected);
         }

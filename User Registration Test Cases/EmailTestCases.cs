@@ -25,15 +25,18 @@ namespace User_Registration_Test_Cases
         [DataRow("abc+100@gmail.com")]
         public void MultipleValidEmails(string Email)
         {
-            string actual;
+            string actual = string.Empty;
 
-            if (ValidEmail.Email(Email))
+            try
             {
-                actual = "Valid";
+                if (ValidEmail.Email(Email))
+                {
+                    actual = "Valid";
+                }
             }
-            else
+            catch (InvalidUserDetails ex)
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
             string expected = "Valid";
@@ -59,18 +62,24 @@ namespace User_Registration_Test_Cases
         [DataRow("abc@gmail.com.aa.au")]
         public void MultipleInvalidEmails(string Email)
         {
-            string actual;
+            InvalidUserDetails ex = new InvalidUserDetails();
+            string actual = string.Empty;
+            string expected;
 
-            if (ValidEmail.Email(Email))
+            try
             {
-                actual = "Valid";
+                if (ValidEmail.Email(Email))
+                {
+                    actual = "Valid";
+                }
+
             }
-            else
+            catch
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
-            string expected = "Invalid";
+            expected = "An exception occurred: " + ex.Message;
 
             Assert.AreEqual(actual, expected);
         }

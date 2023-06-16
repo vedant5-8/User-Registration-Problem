@@ -17,15 +17,18 @@ namespace User_Registration_Test_Cases
         [DataRow("Mhatre")]
         public void MultipleValidLastName(string LastName)
         {
-            string actual;
+            string actual = string.Empty;
 
-            if (ValidLastName.LastName(LastName))
+            try
             {
-                actual = "Valid";
+                if (ValidLastName.LastName(LastName))
+                {
+                    actual = "Valid";
+                }
             }
-            else
+            catch (InvalidUserDetails ex)
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
             string expected = "Valid";
@@ -38,20 +41,26 @@ namespace User_Registration_Test_Cases
         [TestMethod]
         [DataRow("rathod")]
         [DataRow("kulkarni")]
-        public void TestCase1(string LastName)
+        public void MultipleInvalidLastName(string LastName)
         {
-            string actual;
+            InvalidUserDetails ex = new InvalidUserDetails();
+            string actual = string.Empty;
+            string expected;
 
-            if (ValidLastName.LastName(LastName))
+            try
             {
-                actual = "Valid";
+                if (ValidLastName.LastName(LastName))
+                {
+                    actual = "Valid";
+                }
+
             }
-            else
+            catch
             {
-                actual = "Invalid";
+                actual = "An exception occurred: " + ex.Message;
             }
 
-            string expected = "Invalid";
+            expected = "An exception occurred: " + ex.Message;
 
             Assert.AreEqual(actual, expected);
         }
